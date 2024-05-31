@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudentskiResoranVŽ.Models;
 
 namespace StudentskiResoranVŽ
 {
@@ -66,7 +67,7 @@ namespace StudentskiResoranVŽ
 
         private void chbMeni1_CheckedChanged(object sender, EventArgs e)
         {
-            if(chbMeni1.Checked == true)
+            if (chbMeni1.Checked == true)
             {
                 chbMeni2.Checked = false;
                 chbMeni3.Checked = false;
@@ -75,7 +76,7 @@ namespace StudentskiResoranVŽ
 
         private void chbMeni2_CheckedChanged(object sender, EventArgs e)
         {
-            if( chbMeni2.Checked == true)
+            if (chbMeni2.Checked == true)
             {
                 chbMeni3.Checked = false;
                 chbMeni1.Checked = false;
@@ -93,22 +94,31 @@ namespace StudentskiResoranVŽ
 
         private void bntMakeOrder_Click(object sender, EventArgs e)
         {
-            if(chbMeni1.Checked == true || chbMeni2.Checked == true || chbMeni3.Checked == true) 
+            if (chbMeni1.Checked == true || chbMeni2.Checked == true || chbMeni3.Checked == true)
             {
                 pnlAfterOrder.Visible = true;
-            }else
+            } else
             {
-                MessageBox.Show("Niste odabrali meni!", "Nemoguće kreiranje narudžbe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Niste odabrali meni!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             chbMeni1.Checked = false;
             chbMeni2.Checked = false;
             chbMeni3.Checked = false;
-            }
+        }
 
         private void btnAfterOrder_Click(object sender, EventArgs e)
         {
             pnlAfterOrder.Visible = false;
             pnlCreateOrder.Visible = true;
         }
+
+        Meni meni = new Meni()
+        {
+            ID_meni = 1,
+            Soup = "Bistra juha",
+            Main_Course = "Pečena piletina",
+            Side_Dish = "Zelena salata",
+            Desert = "Kolač",
+        };
     }
 }
