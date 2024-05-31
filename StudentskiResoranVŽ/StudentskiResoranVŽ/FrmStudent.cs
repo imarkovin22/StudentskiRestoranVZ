@@ -29,6 +29,7 @@ namespace StudentskiResoranVŽ
         {
             pnlHome.Visible = false;
             pnlCreateOrder.Visible = true;
+            pnlAfterOrder.Visible = false;
         }
 
         private void btnOrderHistory_Click(object sender, EventArgs e)
@@ -55,7 +56,7 @@ namespace StudentskiResoranVŽ
             pnlHome.Visible = true;
         }
 
-        private void btnReturnReview_Click(object sender, EventArgs e)
+        private void btnReturnReview_Click_1(object sender, EventArgs e)
         {
             pnlReview.Visible = false;
             pnlHome.Visible = true;
@@ -86,6 +87,20 @@ namespace StudentskiResoranVŽ
                 chbMeni1.Checked = false;
                 chbMeni2.Checked = false;
             }
+        }
+
+        private void bntMakeOrder_Click(object sender, EventArgs e)
+        {
+            if(chbMeni1.Checked == true || chbMeni2.Checked == true || chbMeni3.Checked == true) 
+            {
+                pnlAfterOrder.Visible = true;
+            }else
+            {
+                MessageBox.Show("Niste odabrali meni!", "Nemoguće kreiranje narudžbe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            chbMeni1.Checked = false;
+            chbMeni2.Checked = false;
+            chbMeni3.Checked = false;
         }
     }
 }
