@@ -54,5 +54,38 @@ namespace StudentskiResoranVŽ
             pnlOrderHistory.Visible = false;
             pnlHome.Visible = true;
         }
+
+        private void btnReturnReview_Click(object sender, EventArgs e)
+        {
+            pnlReview.Visible = false;
+            pnlHome.Visible = true;
+        }
+
+        private void chbMeni1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chbMeni1.Checked == true)
+            {
+                chbMeni2.Checked = false;
+                chbMeni3.Checked = false;
+            }
+        }
+
+        private void chbMeni2_CheckedChanged(object sender, EventArgs e)
+        {
+            if( chbMeni2.Checked == true)
+            {
+                chbMeni3.Checked = false;
+                chbMeni1.Checked = false;
+            }
+        }
+
+        private void chbMeni3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbMeni3.Checked == true)
+            {
+                chbMeni1.Checked = false;
+                chbMeni2.Checked = false;
+            }
+        }
     }
 }
