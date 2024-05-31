@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using StudentskiResoranVŽ.Models;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace StudentskiResoranVŽ
 {
@@ -18,6 +19,7 @@ namespace StudentskiResoranVŽ
         public FrmStudent()
         {
             InitializeComponent();
+            DisplayAllMeniDetails();
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -112,13 +114,19 @@ namespace StudentskiResoranVŽ
             pnlCreateOrder.Visible = true;
         }
 
-        Meni meni = new Meni()
+        private void DisplayMeniDetails(Meni meni, Label lblSoup, Label lblMainDish, Label lblSideDish, Label lblDesert)
         {
-            ID_meni = 1,
-            Soup = "Bistra juha",
-            Main_Course = "Pečena piletina",
-            Side_Dish = "Zelena salata",
-            Desert = "Kolač",
-        };
+            lblSoup.Text = meni.Soup;
+            lblMainDish.Text = meni.Main_Course;
+            lblSideDish.Text = meni.Side_Dish;
+            lblDesert.Text = meni.Desert;
+        }
+
+        private void DisplayAllMeniDetails()
+        {
+            DisplayMeniDetails(Meni.meni1, lblMeni1Soup, lblMeni1MainDish, lblMeni1SideDish, lblMeni1Desert);
+            DisplayMeniDetails(Meni.meni2, lblMeni2Soup, lblMeni2MainDish, lblMeni2SideDish, lblMeni2Desert);
+            DisplayMeniDetails(Meni.meni3, lblMeni3Soup, lblMeni3MainDish, lblMeni3SideDish, lblMeni3Desert);
+        }
     }
 }
