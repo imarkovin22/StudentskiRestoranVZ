@@ -1,7 +1,9 @@
 ﻿using System;
+using DBLayer;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -101,6 +103,12 @@ namespace StudentskiResoranVŽ
             chbMeni1.Checked = false;
             chbMeni2.Checked = false;
             chbMeni3.Checked = false;
+            }
+
+        private void btnAfterOrder_Click(object sender, EventArgs e)
+        {
+            pnlAfterOrder.Visible = false;
+            pnlCreateOrder.Visible = true;
         }
     }
 }

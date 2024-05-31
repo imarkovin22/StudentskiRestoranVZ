@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBLayer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace StudentskiResoranVŽ
         [STAThread]
         static void Main()
         {
+            DB.SetConfiguration("PI2324_imarkovin22_DB", "PI2324_imarkovin22_User", "chh5eh$H");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FrmLogin());
