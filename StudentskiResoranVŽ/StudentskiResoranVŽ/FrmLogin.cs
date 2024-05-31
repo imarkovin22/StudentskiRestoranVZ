@@ -26,7 +26,7 @@ namespace StudentskiResoranVŽ
             {
                 MessageBox.Show("Popunite sva polja!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             } 
-            else if (username == "student" && password == "test")
+            else if (username == "student" && password == "student")
             {
                 Hide();
                 FrmStudent frmStudent = new FrmStudent();
