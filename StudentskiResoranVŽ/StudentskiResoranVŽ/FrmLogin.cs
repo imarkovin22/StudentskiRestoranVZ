@@ -16,5 +16,27 @@ namespace StudentskiResoranVŽ
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+
+            if(username == "" || password == "")    
+            {
+                MessageBox.Show("Popunite sva polja!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            } 
+            else if (username == "student" && password == "test")
+            {
+                Hide();
+                FrmStudent frmStudent = new FrmStudent();
+                frmStudent.ShowDialog();
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Pogrešno korisničko ime ili lozina!", "Neuspjela prijava", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

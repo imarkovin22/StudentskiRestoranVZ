@@ -71,17 +71,18 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(118, 170);
+            this.btnLogin.Location = new System.Drawing.Point(124, 170);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Prijavi";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // lblAppName
             // 
             this.lblAppName.AutoSize = true;
-            this.lblAppName.Location = new System.Drawing.Point(93, 9);
+            this.lblAppName.Location = new System.Drawing.Point(103, 9);
             this.lblAppName.Name = "lblAppName";
             this.lblAppName.Size = new System.Drawing.Size(120, 13);
             this.lblAppName.TabIndex = 5;
@@ -91,7 +92,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 215);
+            this.ClientSize = new System.Drawing.Size(325, 220);
             this.Controls.Add(this.lblAppName);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
