@@ -25,6 +25,10 @@ namespace StudentskiResoranVŽ
         private List<OrderHistory> _originalOrders;
         private ReviewRepository _reviewsRepository;
         private int _userId;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer4;
 
         public FrmStudent(int userId)
         {
@@ -45,6 +49,51 @@ namespace StudentskiResoranVŽ
             pnlCreateOrder.Visible = false;
             pnlOrderHistory.Visible = false;
             pnlReview.Visible = false;
+
+            InitializeTimer();
+
+            timer1.Start();
+            timer2.Start();
+            timer3.Start();
+            timer4.Start();
+        }
+
+        private void InitializeTimer()
+        {
+            timer1 = new System.Windows.Forms.Timer();
+            timer1.Interval = 1000;
+            timer1.Tick += Timer1_Tick;
+
+            timer2 = new System.Windows.Forms.Timer();
+            timer2.Interval = 1000;
+            timer2.Tick += Timer2_Tick;
+
+            timer3 = new System.Windows.Forms.Timer();
+            timer3.Interval = 1000;
+            timer3.Tick += Timer3_Tick;
+
+            timer4 = new System.Windows.Forms.Timer();
+            timer4.Interval = 1000;
+            timer4.Tick += Timer4_Tick;
+        }
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            lblAfterOrderCreatedTime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            lblAfterOrderInProgressTime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void Timer3_Tick(object sender, EventArgs e)
+        {
+            lblAfterOrderReadyTime.Text = DateTime.Now.ToString("HH:mm:ss");
+        }
+
+        private void Timer4_Tick(object sender, EventArgs e)
+        {
+            lblAfterOrderServedTime.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void LoadMenus()
@@ -100,6 +149,11 @@ namespace StudentskiResoranVŽ
 
         private void btnReturnCreateOrder_Click(object sender, EventArgs e)
         {
+            timer1.Start();
+            timer2.Start();
+            timer3.Start();
+            timer4.Start();
+
             StopTask();
             pnlCreateOrder.Visible = false;
             pnlHome.Visible = true;
@@ -173,6 +227,7 @@ namespace StudentskiResoranVŽ
                 DisplayOrders();
 
                 pnlAfterOrder.Visible = true;
+
             } 
             else
             {
@@ -187,21 +242,25 @@ namespace StudentskiResoranVŽ
             try
             {
                 await Task.Delay(5000, _cancellationTokenSource.Token);
+                timer1.Stop();
                 pnlAfterOrderCreated.Size = new System.Drawing.Size(342, 75);
                 pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 140);
                 pnlAfterOrderInProgress.Location = (Point)new Size(width: 43, height: 130);
 
                 await Task.Delay(5000, _cancellationTokenSource.Token);
+                timer2.Stop();
                 pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 75);
                 pnlAfterOrderReady.Size = new System.Drawing.Size(342, 142);
                 pnlAfterOrderReady.Location = (Point)new Size(width: 43, height: 215);
 
                 await Task.Delay(5000, _cancellationTokenSource.Token);
+                timer3.Stop();
                 pnlAfterOrderReady.Size = new System.Drawing.Size(342, 75);
                 pnlAfterOrderServed.Size = new System.Drawing.Size(342, 142);
                 pnlAfterOrderServed.Location = (Point)new Size(width: 43, height: 300);
 
                 await Task.Delay(5000, _cancellationTokenSource.Token);
+                timer4.Stop();
                 pnlAfterOrderServed.Size = new System.Drawing.Size(342, 75);
                 pnlAfterOrderReview.Visible = true;
             } 
@@ -210,6 +269,11 @@ namespace StudentskiResoranVŽ
 
         private void btnAfterOrder_Click(object sender, EventArgs e)
         {
+            timer1.Start();
+            timer2.Start();
+            timer3.Start();
+            timer4.Start();
+
             StopTask();
             pnlAfterOrderReview.Visible = false;
             pnlAfterOrder.Visible = false;

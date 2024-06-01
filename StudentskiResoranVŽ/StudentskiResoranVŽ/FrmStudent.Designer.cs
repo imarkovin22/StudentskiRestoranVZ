@@ -173,10 +173,10 @@
             // 
             // pnlCreateOrder
             // 
-            this.pnlCreateOrder.Controls.Add(this.pnlAfterOrder);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni1);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni2);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni3);
+            this.pnlCreateOrder.Controls.Add(this.pnlAfterOrder);
             this.pnlCreateOrder.Controls.Add(this.bntMakeOrder);
             this.pnlCreateOrder.Controls.Add(this.lblMeni);
             this.pnlCreateOrder.Controls.Add(this.btnReturnCreateOrder);
@@ -744,10 +744,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 565);
-            this.Controls.Add(this.pnlReview);
             this.Controls.Add(this.pnlHome);
-            this.Controls.Add(this.pnlOrderHistory);
             this.Controls.Add(this.pnlCreateOrder);
+            this.Controls.Add(this.pnlOrderHistory);
+            this.Controls.Add(this.pnlReview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
