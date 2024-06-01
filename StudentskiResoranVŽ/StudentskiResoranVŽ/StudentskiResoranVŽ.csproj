@@ -62,6 +62,7 @@
     <Compile Include="FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\OrderHistory.cs" />
     <Compile Include="Models\Meni.cs" />
     <Compile Include="Models\Review.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="Repositories\MeniRepository.cs" />
     <Compile Include="Repositories\OrderHistoryRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

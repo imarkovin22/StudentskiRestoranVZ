@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace StudentskiResoranVŽ.Models
 {
-    internal class Review
+    public class Review
     {
+        public int Id { get; set; }
+        public int UserId { get; set; }
+        public int OrderItemId { get; set; }
+        public string ReviewText { get; set; }
     }
 }

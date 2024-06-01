@@ -22,14 +22,28 @@ namespace StudentskiResoranVŽ
         private MeniRepository _meniRepository;
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
         private OrderHistoryRepository _orderHistoryRepository;
+        private List<OrderHistory> _originalOrders;
+        private ReviewRepository _reviewsRepository;
+        private int _userId;
 
-        public FrmStudent()
+        public FrmStudent(int userId)
         {
             InitializeComponent();
+            _userId = userId;
             _meniRepository = new MeniRepository();
             LoadMenus();
             _orderHistoryRepository = new OrderHistoryRepository();
             DisplayOrders();
+
+            lsbOrderHistory.HorizontalScrollbar = true;
+            _originalOrders = _orderHistoryRepository.GetAllOrders();
+
+            _reviewsRepository = new ReviewRepository();
+
+            pnlHome.Visible = true;
+            pnlCreateOrder.Visible = false;
+            pnlOrderHistory.Visible = false;
+            pnlReview.Visible = false;
         }
 
         private void LoadMenus()
@@ -235,10 +249,62 @@ namespace StudentskiResoranVŽ
 
             foreach (var order in orders)
             {
-                string orderDetails = $"Order ID: {order.OrderId}, Soup: {order.SelectedMeni.Soup}, Main Course: {order.SelectedMeni.Main_Course}, Side Dish: {order.SelectedMeni.Side_Dish}, Dessert: {order.SelectedMeni.Desert}";
+                string orderDetails = $"ID: {order.OrderId}, Juha: {order.SelectedMeni.Soup}, Glavno jelo: {order.SelectedMeni.Main_Course}, Prilog: {order.SelectedMeni.Side_Dish}, Desert: {order.SelectedMeni.Desert}";
 
                 lsbOrderHistory.Items.Add(orderDetails);
             }
+        }
+
+        private void btnOrderHistorySub_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtOrderHistorySub.Text.ToLower();
+
+            var filteredOrders = _originalOrders.Where(order =>
+                order.SelectedMeni.Soup.ToLower().Contains(searchTerm) ||
+                order.SelectedMeni.Main_Course.ToLower().Contains(searchTerm) ||
+                order.SelectedMeni.Side_Dish.ToLower().Contains(searchTerm) ||
+                order.SelectedMeni.Desert.ToLower().Contains(searchTerm)
+            ).ToList();
+
+            DisplayFilteredOrders(filteredOrders);
+        }
+
+        private void DisplayFilteredOrders(List<OrderHistory> orders)
+        {
+            lsbOrderHistory.Items.Clear();
+
+            foreach (var order in orders)
+            {
+                string orderDetails = $"ID: {order.OrderId}, Juha: {order.SelectedMeni.Soup}, Glavno jelo: {order.SelectedMeni.Main_Course}, Prilog: {order.SelectedMeni.Side_Dish}, Desert: {order.SelectedMeni.Desert}";
+                lsbOrderHistory.Items.Add(orderDetails);
+            }
+        }
+
+        private int GenerateUniqueId()
+        {
+            Random random = new Random();
+            return random.Next(1000, 9999);
+        }
+
+        private int GetCurrentUserId()
+        {
+            return _userId;
+        }
+
+        private void btnAfterOrderReview_Click(object sender, EventArgs e)
+        {
+            string reviewText = txtAfterOrderReview.Text;
+
+            var review = new Review
+            {
+                Id = GenerateUniqueId(),
+                UserId = GetCurrentUserId(),
+                ReviewText = reviewText
+            };
+
+            _reviewsRepository.SaveReview(review);
+
+            MessageBox.Show("Review saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

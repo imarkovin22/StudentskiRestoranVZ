@@ -37,6 +37,8 @@
             this.pnlCreateOrder = new System.Windows.Forms.Panel();
             this.pnlAfterOrder = new System.Windows.Forms.Panel();
             this.pnlAfterOrderReview = new System.Windows.Forms.Panel();
+            this.lblAfterOrderReviewTip = new System.Windows.Forms.Label();
+            this.btnAfterOrderReview = new System.Windows.Forms.Button();
             this.txtAfterOrderReview = new System.Windows.Forms.TextBox();
             this.lblAfterOrderReview = new System.Windows.Forms.Label();
             this.btnAfterOrder = new System.Windows.Forms.Button();
@@ -78,11 +80,14 @@
             this.lblOrderHistory = new System.Windows.Forms.Label();
             this.btnReturnOrderHistory = new System.Windows.Forms.Button();
             this.pnlOrderHistorySub = new System.Windows.Forms.Panel();
+            this.lblOrderHistorySub = new System.Windows.Forms.Label();
+            this.lsbOrderHistory = new System.Windows.Forms.ListBox();
             this.pnlReview = new System.Windows.Forms.Panel();
             this.btnReturnReview = new System.Windows.Forms.Button();
-            this.btnAfterOrderReview = new System.Windows.Forms.Button();
-            this.lblAfterOrderReviewTip = new System.Windows.Forms.Label();
-            this.lsbOrderHistory = new System.Windows.Forms.ListBox();
+            this.txtOrderHistorySub = new System.Windows.Forms.TextBox();
+            this.btnOrderHistorySub = new System.Windows.Forms.Button();
+            this.pnlReviewSub = new System.Windows.Forms.Panel();
+            this.lblReview = new System.Windows.Forms.Label();
             this.pnlHome.SuspendLayout();
             this.pnlCreateOrder.SuspendLayout();
             this.pnlAfterOrder.SuspendLayout();
@@ -202,6 +207,25 @@
             this.pnlAfterOrderReview.Name = "pnlAfterOrderReview";
             this.pnlAfterOrderReview.Size = new System.Drawing.Size(377, 103);
             this.pnlAfterOrderReview.TabIndex = 27;
+            // 
+            // lblAfterOrderReviewTip
+            // 
+            this.lblAfterOrderReviewTip.AutoSize = true;
+            this.lblAfterOrderReviewTip.Location = new System.Drawing.Point(37, 62);
+            this.lblAfterOrderReviewTip.Name = "lblAfterOrderReviewTip";
+            this.lblAfterOrderReviewTip.Size = new System.Drawing.Size(202, 13);
+            this.lblAfterOrderReviewTip.TabIndex = 3;
+            this.lblAfterOrderReviewTip.Text = "!Ocijeni količinu i okus na skali od 1 do 5!";
+            // 
+            // btnAfterOrderReview
+            // 
+            this.btnAfterOrderReview.Location = new System.Drawing.Point(280, 62);
+            this.btnAfterOrderReview.Name = "btnAfterOrderReview";
+            this.btnAfterOrderReview.Size = new System.Drawing.Size(75, 23);
+            this.btnAfterOrderReview.TabIndex = 2;
+            this.btnAfterOrderReview.Text = "Pošalji";
+            this.btnAfterOrderReview.UseVisualStyleBackColor = true;
+            this.btnAfterOrderReview.Click += new System.EventHandler(this.btnAfterOrderReview_Click);
             // 
             // txtAfterOrderReview
             // 
@@ -592,14 +616,36 @@
             // pnlOrderHistorySub
             // 
             this.pnlOrderHistorySub.BackColor = System.Drawing.Color.Azure;
+            this.pnlOrderHistorySub.Controls.Add(this.btnOrderHistorySub);
+            this.pnlOrderHistorySub.Controls.Add(this.txtOrderHistorySub);
+            this.pnlOrderHistorySub.Controls.Add(this.lblOrderHistorySub);
             this.pnlOrderHistorySub.Controls.Add(this.lsbOrderHistory);
             this.pnlOrderHistorySub.Location = new System.Drawing.Point(141, 75);
             this.pnlOrderHistorySub.Name = "pnlOrderHistorySub";
             this.pnlOrderHistorySub.Size = new System.Drawing.Size(434, 455);
             this.pnlOrderHistorySub.TabIndex = 8;
             // 
+            // lblOrderHistorySub
+            // 
+            this.lblOrderHistorySub.AutoSize = true;
+            this.lblOrderHistorySub.Location = new System.Drawing.Point(43, 28);
+            this.lblOrderHistorySub.Name = "lblOrderHistorySub";
+            this.lblOrderHistorySub.Size = new System.Drawing.Size(71, 13);
+            this.lblOrderHistorySub.TabIndex = 1;
+            this.lblOrderHistorySub.Text = "Pretraživanje:";
+            // 
+            // lsbOrderHistory
+            // 
+            this.lsbOrderHistory.FormattingEnabled = true;
+            this.lsbOrderHistory.Location = new System.Drawing.Point(43, 72);
+            this.lsbOrderHistory.Name = "lsbOrderHistory";
+            this.lsbOrderHistory.Size = new System.Drawing.Size(355, 368);
+            this.lsbOrderHistory.TabIndex = 0;
+            // 
             // pnlReview
             // 
+            this.pnlReview.Controls.Add(this.lblReview);
+            this.pnlReview.Controls.Add(this.pnlReviewSub);
             this.pnlReview.Controls.Add(this.btnReturnReview);
             this.pnlReview.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReview.Location = new System.Drawing.Point(0, 0);
@@ -617,41 +663,48 @@
             this.btnReturnReview.UseVisualStyleBackColor = true;
             this.btnReturnReview.Click += new System.EventHandler(this.btnReturnReview_Click_1);
             // 
-            // btnAfterOrderReview
+            // txtOrderHistorySub
             // 
-            this.btnAfterOrderReview.Location = new System.Drawing.Point(280, 62);
-            this.btnAfterOrderReview.Name = "btnAfterOrderReview";
-            this.btnAfterOrderReview.Size = new System.Drawing.Size(75, 23);
-            this.btnAfterOrderReview.TabIndex = 2;
-            this.btnAfterOrderReview.Text = "Pošalji";
-            this.btnAfterOrderReview.UseVisualStyleBackColor = true;
+            this.txtOrderHistorySub.Location = new System.Drawing.Point(114, 25);
+            this.txtOrderHistorySub.Name = "txtOrderHistorySub";
+            this.txtOrderHistorySub.Size = new System.Drawing.Size(203, 20);
+            this.txtOrderHistorySub.TabIndex = 2;
             // 
-            // lblAfterOrderReviewTip
+            // btnOrderHistorySub
             // 
-            this.lblAfterOrderReviewTip.AutoSize = true;
-            this.lblAfterOrderReviewTip.Location = new System.Drawing.Point(37, 62);
-            this.lblAfterOrderReviewTip.Name = "lblAfterOrderReviewTip";
-            this.lblAfterOrderReviewTip.Size = new System.Drawing.Size(202, 13);
-            this.lblAfterOrderReviewTip.TabIndex = 3;
-            this.lblAfterOrderReviewTip.Text = "!Ocijeni količinu i okus na skali od 1 do 5!";
+            this.btnOrderHistorySub.Location = new System.Drawing.Point(323, 25);
+            this.btnOrderHistorySub.Name = "btnOrderHistorySub";
+            this.btnOrderHistorySub.Size = new System.Drawing.Size(75, 23);
+            this.btnOrderHistorySub.TabIndex = 3;
+            this.btnOrderHistorySub.Text = "Pretraži";
+            this.btnOrderHistorySub.UseVisualStyleBackColor = true;
+            this.btnOrderHistorySub.Click += new System.EventHandler(this.btnOrderHistorySub_Click);
             // 
-            // lsbOrderHistory
+            // pnlReviewSub
             // 
-            this.lsbOrderHistory.FormattingEnabled = true;
-            this.lsbOrderHistory.Location = new System.Drawing.Point(43, 20);
-            this.lsbOrderHistory.Name = "lsbOrderHistory";
-            this.lsbOrderHistory.Size = new System.Drawing.Size(355, 420);
-            this.lsbOrderHistory.TabIndex = 0;
+            this.pnlReviewSub.Location = new System.Drawing.Point(141, 41);
+            this.pnlReviewSub.Name = "pnlReviewSub";
+            this.pnlReviewSub.Size = new System.Drawing.Size(443, 491);
+            this.pnlReviewSub.TabIndex = 7;
+            // 
+            // lblReview
+            // 
+            this.lblReview.AutoSize = true;
+            this.lblReview.Location = new System.Drawing.Point(318, 12);
+            this.lblReview.Name = "lblReview";
+            this.lblReview.Size = new System.Drawing.Size(54, 13);
+            this.lblReview.TabIndex = 8;
+            this.lblReview.Text = "Recenzije";
             // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 565);
-            this.Controls.Add(this.pnlHome);
-            this.Controls.Add(this.pnlOrderHistory);
-            this.Controls.Add(this.pnlCreateOrder);
             this.Controls.Add(this.pnlReview);
+            this.Controls.Add(this.pnlHome);
+            this.Controls.Add(this.pnlCreateOrder);
+            this.Controls.Add(this.pnlOrderHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -684,7 +737,9 @@
             this.pnlOrderHistory.ResumeLayout(false);
             this.pnlOrderHistory.PerformLayout();
             this.pnlOrderHistorySub.ResumeLayout(false);
+            this.pnlOrderHistorySub.PerformLayout();
             this.pnlReview.ResumeLayout(false);
+            this.pnlReview.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -746,5 +801,10 @@
         private System.Windows.Forms.Label lblAfterOrderReviewTip;
         private System.Windows.Forms.Button btnAfterOrderReview;
         private System.Windows.Forms.ListBox lsbOrderHistory;
+        private System.Windows.Forms.Label lblOrderHistorySub;
+        private System.Windows.Forms.Button btnOrderHistorySub;
+        private System.Windows.Forms.TextBox txtOrderHistorySub;
+        private System.Windows.Forms.Panel pnlReviewSub;
+        private System.Windows.Forms.Label lblReview;
     }
 }

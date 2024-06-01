@@ -8,7 +8,13 @@ namespace StudentskiResoranVŽ.Models
 {
     public class OrderHistory
     {
-        public int OrderId { get; set; }
+        private static int _nextOrderId = 1;
+        public int OrderId { get;  }
         public Meni SelectedMeni { get; set; }
+
+        public OrderHistory()
+        {
+            OrderId = _nextOrderId++;
+        }
     }
 }
