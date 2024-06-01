@@ -36,6 +36,8 @@
             this.pnlHome = new System.Windows.Forms.Panel();
             this.pnlCreateOrder = new System.Windows.Forms.Panel();
             this.pnlAfterOrder = new System.Windows.Forms.Panel();
+            this.pnlAfterOrderReview = new System.Windows.Forms.Panel();
+            this.lblAfterOrderReview = new System.Windows.Forms.Label();
             this.btnAfterOrder = new System.Windows.Forms.Button();
             this.pnlAfterOrderCreated = new System.Windows.Forms.Panel();
             this.lblAfterOrderCreatedTime = new System.Windows.Forms.Label();
@@ -77,9 +79,11 @@
             this.pnlOrderHistorySub = new System.Windows.Forms.Panel();
             this.pnlReview = new System.Windows.Forms.Panel();
             this.btnReturnReview = new System.Windows.Forms.Button();
+            this.txtAfterOrderReview = new System.Windows.Forms.TextBox();
             this.pnlHome.SuspendLayout();
             this.pnlCreateOrder.SuspendLayout();
             this.pnlAfterOrder.SuspendLayout();
+            this.pnlAfterOrderReview.SuspendLayout();
             this.pnlAfterOrderCreated.SuspendLayout();
             this.pnlAfterOrderInProgress.SuspendLayout();
             this.pnlAfterOrderReady.SuspendLayout();
@@ -172,6 +176,7 @@
             // pnlAfterOrder
             // 
             this.pnlAfterOrder.BackColor = System.Drawing.Color.LightGray;
+            this.pnlAfterOrder.Controls.Add(this.pnlAfterOrderReview);
             this.pnlAfterOrder.Controls.Add(this.btnAfterOrder);
             this.pnlAfterOrder.Controls.Add(this.pnlAfterOrderCreated);
             this.pnlAfterOrder.Controls.Add(this.pnlAfterOrderInProgress);
@@ -182,6 +187,24 @@
             this.pnlAfterOrder.Name = "pnlAfterOrder";
             this.pnlAfterOrder.Size = new System.Drawing.Size(452, 532);
             this.pnlAfterOrder.TabIndex = 26;
+            // 
+            // pnlAfterOrderReview
+            // 
+            this.pnlAfterOrderReview.Controls.Add(this.txtAfterOrderReview);
+            this.pnlAfterOrderReview.Controls.Add(this.lblAfterOrderReview);
+            this.pnlAfterOrderReview.Location = new System.Drawing.Point(27, 371);
+            this.pnlAfterOrderReview.Name = "pnlAfterOrderReview";
+            this.pnlAfterOrderReview.Size = new System.Drawing.Size(377, 118);
+            this.pnlAfterOrderReview.TabIndex = 27;
+            // 
+            // lblAfterOrderReview
+            // 
+            this.lblAfterOrderReview.AutoSize = true;
+            this.lblAfterOrderReview.Location = new System.Drawing.Point(30, 13);
+            this.lblAfterOrderReview.Name = "lblAfterOrderReview";
+            this.lblAfterOrderReview.Size = new System.Drawing.Size(57, 13);
+            this.lblAfterOrderReview.TabIndex = 0;
+            this.lblAfterOrderReview.Text = "Recenzija:";
             // 
             // btnAfterOrder
             // 
@@ -580,6 +603,13 @@
             this.btnReturnReview.UseVisualStyleBackColor = true;
             this.btnReturnReview.Click += new System.EventHandler(this.btnReturnReview_Click_1);
             // 
+            // txtAfterOrderReview
+            // 
+            this.txtAfterOrderReview.Location = new System.Drawing.Point(29, 35);
+            this.txtAfterOrderReview.Name = "txtAfterOrderReview";
+            this.txtAfterOrderReview.Size = new System.Drawing.Size(328, 20);
+            this.txtAfterOrderReview.TabIndex = 1;
+            // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -602,6 +632,8 @@
             this.pnlCreateOrder.PerformLayout();
             this.pnlAfterOrder.ResumeLayout(false);
             this.pnlAfterOrder.PerformLayout();
+            this.pnlAfterOrderReview.ResumeLayout(false);
+            this.pnlAfterOrderReview.PerformLayout();
             this.pnlAfterOrderCreated.ResumeLayout(false);
             this.pnlAfterOrderCreated.PerformLayout();
             this.pnlAfterOrderInProgress.ResumeLayout(false);
@@ -674,5 +706,8 @@
         private System.Windows.Forms.Button btnAfterOrder;
         private System.Windows.Forms.Panel pnlOrderHistorySub;
         private System.Windows.Forms.Label lblOrderHistory;
+        private System.Windows.Forms.Panel pnlAfterOrderReview;
+        private System.Windows.Forms.Label lblAfterOrderReview;
+        private System.Windows.Forms.TextBox txtAfterOrderReview;
     }
 }

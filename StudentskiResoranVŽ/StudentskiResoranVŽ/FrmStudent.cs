@@ -11,15 +11,42 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StudentskiResoranVŽ.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Threading;
+using StudentskiResoranVŽ.Repositories;
 
 namespace StudentskiResoranVŽ
 {
     public partial class FrmStudent : Form
     {
+
+        private MeniRepository _meniRepository;
+        private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+
         public FrmStudent()
         {
             InitializeComponent();
-            DisplayAllMeniDetails();
+            _meniRepository = new MeniRepository();
+            LoadMenus();
+        }
+
+        private void LoadMenus()
+        {
+            var menus = _meniRepository.GetAllMenus();
+
+            if (menus.Count >= 1)
+            {
+                DisplayMeniDetails(menus[0], lblMeni1Soup, lblMeni1MainDish, lblMeni1SideDish, lblMeni1Desert);
+            }
+
+            if (menus.Count >= 2)
+            {
+                DisplayMeniDetails(menus[1], lblMeni2Soup, lblMeni2MainDish, lblMeni2SideDish, lblMeni2Desert);
+            }
+
+            if (menus.Count >= 3)
+            {
+                DisplayMeniDetails(menus[2], lblMeni3Soup, lblMeni3MainDish, lblMeni3SideDish, lblMeni3Desert);
+            }
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -51,8 +78,18 @@ namespace StudentskiResoranVŽ
 
         private void btnReturnCreateOrder_Click(object sender, EventArgs e)
         {
+            StopTask();
             pnlCreateOrder.Visible = false;
             pnlHome.Visible = true;
+
+            pnlAfterOrderCreated.Size = new System.Drawing.Size(342, 142);
+            pnlAfterOrderCreated.Location = new Point(43, 43);
+            pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderInProgress.Location = new Point(43, 201);
+            pnlAfterOrderReady.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderReady.Location = new Point(43, 301);
+            pnlAfterOrderServed.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderServed.Location = new Point(43, 401);
         }
 
         private void btnReturnOrderHistory_Click(object sender, EventArgs e)
@@ -107,29 +144,47 @@ namespace StudentskiResoranVŽ
             chbMeni2.Checked = false;
             chbMeni3.Checked = false;
 
-            await Task.Delay(5000);
-            pnlAfterOrderCreated.Size = new System.Drawing.Size(342, 81);
-            pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 142);
-            pnlAfterOrderInProgress.Location = (Point)new Size(width: 43, height: 140);
+            pnlAfterOrderReview.Visible = false;
 
-            await Task.Delay(5000);
-            pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 81);
-            pnlAfterOrderReady.Size = new System.Drawing.Size(342, 142);
-            pnlAfterOrderReady.Location = (Point)new Size(width: 43, height: 235);
+            try
+            {
+                await Task.Delay(5000, _cancellationTokenSource.Token);
+                pnlAfterOrderCreated.Size = new System.Drawing.Size(342, 75);
+                pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 140);
+                pnlAfterOrderInProgress.Location = (Point)new Size(width: 43, height: 130);
 
-            await Task.Delay(5000);
-            pnlAfterOrderReady.Size = new System.Drawing.Size(342, 81);
-            pnlAfterOrderServed.Size = new System.Drawing.Size(342, 142);
-            pnlAfterOrderServed.Location = (Point)new Size(width: 43, height: 330);
+                await Task.Delay(5000, _cancellationTokenSource.Token);
+                pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 75);
+                pnlAfterOrderReady.Size = new System.Drawing.Size(342, 142);
+                pnlAfterOrderReady.Location = (Point)new Size(width: 43, height: 215);
 
-            await Task.Delay(5000);
-            pnlAfterOrderServed.Size = new System.Drawing.Size(342, 81);
+                await Task.Delay(5000, _cancellationTokenSource.Token);
+                pnlAfterOrderReady.Size = new System.Drawing.Size(342, 75);
+                pnlAfterOrderServed.Size = new System.Drawing.Size(342, 142);
+                pnlAfterOrderServed.Location = (Point)new Size(width: 43, height: 300);
+
+                await Task.Delay(5000, _cancellationTokenSource.Token);
+                pnlAfterOrderServed.Size = new System.Drawing.Size(342, 75);
+                pnlAfterOrderReview.Visible = true;
+            } 
+            catch{}
         }
 
         private void btnAfterOrder_Click(object sender, EventArgs e)
         {
+            StopTask();
+            pnlAfterOrderReview.Visible = false;
             pnlAfterOrder.Visible = false;
             pnlCreateOrder.Visible = true;
+
+            pnlAfterOrderCreated.Size = new System.Drawing.Size(342, 142);
+            pnlAfterOrderCreated.Location = new Point(43, 43);
+            pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderInProgress.Location = new Point(43, 201);
+            pnlAfterOrderReady.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderReady.Location = new Point(43, 301);
+            pnlAfterOrderServed.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderServed.Location = new Point(43, 401);
         }
 
         private void DisplayMeniDetails(Meni meni, Label lblSoup, Label lblMainDish, Label lblSideDish, Label lblDesert)
@@ -140,11 +195,14 @@ namespace StudentskiResoranVŽ
             lblDesert.Text = meni.Desert;
         }
 
-        private void DisplayAllMeniDetails()
+        private void StopTask()
         {
-            DisplayMeniDetails(Meni.meni1, lblMeni1Soup, lblMeni1MainDish, lblMeni1SideDish, lblMeni1Desert);
-            DisplayMeniDetails(Meni.meni2, lblMeni2Soup, lblMeni2MainDish, lblMeni2SideDish, lblMeni2Desert);
-            DisplayMeniDetails(Meni.meni3, lblMeni3Soup, lblMeni3MainDish, lblMeni3SideDish, lblMeni3Desert);
+            if (_cancellationTokenSource != null)
+            {
+                _cancellationTokenSource.Cancel();
+                _cancellationTokenSource = new CancellationTokenSource();
+            }
         }
+
     }
 }
