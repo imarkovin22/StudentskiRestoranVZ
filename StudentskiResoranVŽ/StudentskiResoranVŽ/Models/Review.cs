@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentskiResoranVŽ.Models
 {
-    public class OrderHistory
+    internal class Review
     {
-        public int OrderId { get; set; }
-        public Meni SelectedMeni { get; set; }
     }
 }

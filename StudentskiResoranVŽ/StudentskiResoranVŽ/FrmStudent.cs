@@ -21,12 +21,15 @@ namespace StudentskiResoranVŽ
 
         private MeniRepository _meniRepository;
         private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+        private OrderHistoryRepository _orderHistoryRepository;
 
         public FrmStudent()
         {
             InitializeComponent();
             _meniRepository = new MeniRepository();
             LoadMenus();
+            _orderHistoryRepository = new OrderHistoryRepository();
+            DisplayOrders();
         }
 
         private void LoadMenus()
@@ -61,18 +64,22 @@ namespace StudentskiResoranVŽ
         {
             pnlHome.Visible = false;
             pnlCreateOrder.Visible = true;
+            pnlOrderHistory.Visible = false;
+            pnlReview.Visible = false;
             pnlAfterOrder.Visible = false;
         }
 
         private void btnOrderHistory_Click(object sender, EventArgs e)
         {
             pnlHome.Visible = false;
+            pnlReview.Visible = false;
             pnlOrderHistory.Visible = true;
         }
 
         private void btnReview_Click(object sender, EventArgs e)
         {
             pnlHome.Visible = false;
+            pnlOrderHistory.Visible = false;
             pnlReview.Visible = true;
         }
 
@@ -106,7 +113,7 @@ namespace StudentskiResoranVŽ
 
         private void chbMeni1_CheckedChanged(object sender, EventArgs e)
         {
-            if (chbMeni1.Checked == true)
+            if (chbMeni1.Checked)
             {
                 chbMeni2.Checked = false;
                 chbMeni3.Checked = false;
@@ -115,7 +122,7 @@ namespace StudentskiResoranVŽ
 
         private void chbMeni2_CheckedChanged(object sender, EventArgs e)
         {
-            if (chbMeni2.Checked == true)
+            if (chbMeni2.Checked)
             {
                 chbMeni3.Checked = false;
                 chbMeni1.Checked = false;
@@ -124,7 +131,7 @@ namespace StudentskiResoranVŽ
 
         private void chbMeni3_CheckedChanged(object sender, EventArgs e)
         {
-            if (chbMeni3.Checked == true)
+            if (chbMeni3.Checked)
             {
                 chbMeni1.Checked = false;
                 chbMeni2.Checked = false;
@@ -133,10 +140,26 @@ namespace StudentskiResoranVŽ
 
         private async void bntMakeOrder_Click(object sender, EventArgs e)
         {
-            if (chbMeni1.Checked == true || chbMeni2.Checked == true || chbMeni3.Checked == true)
+            if (chbMeni1.Checked || chbMeni2.Checked || chbMeni3.Checked)
             {
+
+                int selectedMeniId = -1;
+                if (chbMeni1.Checked) selectedMeniId = 1;
+                else if (chbMeni2.Checked) selectedMeniId = 2;
+                else if (chbMeni3.Checked) selectedMeniId = 3;
+
+                var order = new OrderHistory
+                {
+                    SelectedMeni = _meniRepository.GetMeniById(selectedMeniId),
+                };
+
+                _orderHistoryRepository.SaveOrder(order);
+
+                DisplayOrders();
+
                 pnlAfterOrder.Visible = true;
-            } else
+            } 
+            else
             {
                 MessageBox.Show("Niste odabrali meni!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -204,5 +227,18 @@ namespace StudentskiResoranVŽ
             }
         }
 
+        private void DisplayOrders()
+        {
+            lsbOrderHistory.Items.Clear();
+
+            var orders = _orderHistoryRepository.GetAllOrders();
+
+            foreach (var order in orders)
+            {
+                string orderDetails = $"Order ID: {order.OrderId}, Soup: {order.SelectedMeni.Soup}, Main Course: {order.SelectedMeni.Main_Course}, Side Dish: {order.SelectedMeni.Side_Dish}, Dessert: {order.SelectedMeni.Desert}";
+
+                lsbOrderHistory.Items.Add(orderDetails);
+            }
+        }
     }
 }

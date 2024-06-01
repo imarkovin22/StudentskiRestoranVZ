@@ -1,6 +1,7 @@
 ﻿using StudentskiResoranVŽ.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,10 +49,9 @@ namespace StudentskiResoranVŽ.Repositories
             return _menus;
         }
 
-        public Meni GetMenuById(int id)
+        internal Meni GetMeniById(int selectedMeniId)
         {
-            return _menus.Find(menu => menu.ID_meni == id);
+            return _menus.FirstOrDefault(m => m.ID_meni == selectedMeniId);
         }
-
     }
 }
