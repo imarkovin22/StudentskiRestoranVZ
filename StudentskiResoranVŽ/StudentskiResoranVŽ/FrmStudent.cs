@@ -94,7 +94,7 @@ namespace StudentskiResoranVŽ
             }
         }
 
-        private void bntMakeOrder_Click(object sender, EventArgs e)
+        private async void bntMakeOrder_Click(object sender, EventArgs e)
         {
             if (chbMeni1.Checked == true || chbMeni2.Checked == true || chbMeni3.Checked == true)
             {
@@ -106,6 +106,24 @@ namespace StudentskiResoranVŽ
             chbMeni1.Checked = false;
             chbMeni2.Checked = false;
             chbMeni3.Checked = false;
+
+            await Task.Delay(5000);
+            pnlAfterOrderCreated.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 142);
+            pnlAfterOrderInProgress.Location = (Point)new Size(width: 43, height: 140);
+
+            await Task.Delay(5000);
+            pnlAfterOrderInProgress.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderReady.Size = new System.Drawing.Size(342, 142);
+            pnlAfterOrderReady.Location = (Point)new Size(width: 43, height: 235);
+
+            await Task.Delay(5000);
+            pnlAfterOrderReady.Size = new System.Drawing.Size(342, 81);
+            pnlAfterOrderServed.Size = new System.Drawing.Size(342, 142);
+            pnlAfterOrderServed.Location = (Point)new Size(width: 43, height: 330);
+
+            await Task.Delay(5000);
+            pnlAfterOrderServed.Size = new System.Drawing.Size(342, 81);
         }
 
         private void btnAfterOrder_Click(object sender, EventArgs e)

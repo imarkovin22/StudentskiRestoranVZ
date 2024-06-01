@@ -155,10 +155,10 @@
             // 
             // pnlCreateOrder
             // 
+            this.pnlCreateOrder.Controls.Add(this.pnlAfterOrder);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni1);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni2);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni3);
-            this.pnlCreateOrder.Controls.Add(this.pnlAfterOrder);
             this.pnlCreateOrder.Controls.Add(this.bntMakeOrder);
             this.pnlCreateOrder.Controls.Add(this.lblMeni);
             this.pnlCreateOrder.Controls.Add(this.btnReturnCreateOrder);
@@ -206,7 +206,7 @@
             // lblAfterOrderCreatedTime
             // 
             this.lblAfterOrderCreatedTime.AutoSize = true;
-            this.lblAfterOrderCreatedTime.Location = new System.Drawing.Point(112, 71);
+            this.lblAfterOrderCreatedTime.Location = new System.Drawing.Point(112, 52);
             this.lblAfterOrderCreatedTime.Name = "lblAfterOrderCreatedTime";
             this.lblAfterOrderCreatedTime.Size = new System.Drawing.Size(47, 13);
             this.lblAfterOrderCreatedTime.TabIndex = 1;
@@ -215,7 +215,7 @@
             // lblAfterOrderCreated
             // 
             this.lblAfterOrderCreated.AutoSize = true;
-            this.lblAfterOrderCreated.Location = new System.Drawing.Point(112, 20);
+            this.lblAfterOrderCreated.Location = new System.Drawing.Point(112, 17);
             this.lblAfterOrderCreated.Name = "lblAfterOrderCreated";
             this.lblAfterOrderCreated.Size = new System.Drawing.Size(91, 13);
             this.lblAfterOrderCreated.TabIndex = 0;
@@ -234,7 +234,7 @@
             // lblAfterOrderInProgressTime
             // 
             this.lblAfterOrderInProgressTime.AutoSize = true;
-            this.lblAfterOrderInProgressTime.Location = new System.Drawing.Point(119, 54);
+            this.lblAfterOrderInProgressTime.Location = new System.Drawing.Point(119, 43);
             this.lblAfterOrderInProgressTime.Name = "lblAfterOrderInProgressTime";
             this.lblAfterOrderInProgressTime.Size = new System.Drawing.Size(44, 13);
             this.lblAfterOrderInProgressTime.TabIndex = 1;
@@ -243,7 +243,7 @@
             // lblAfterOrderInProgress
             // 
             this.lblAfterOrderInProgress.AutoSize = true;
-            this.lblAfterOrderInProgress.Location = new System.Drawing.Point(119, 20);
+            this.lblAfterOrderInProgress.Location = new System.Drawing.Point(119, 16);
             this.lblAfterOrderInProgress.Name = "lblAfterOrderInProgress";
             this.lblAfterOrderInProgress.Size = new System.Drawing.Size(47, 13);
             this.lblAfterOrderInProgress.TabIndex = 0;
@@ -262,7 +262,7 @@
             // lblAfterOrderReadyTime
             // 
             this.lblAfterOrderReadyTime.AutoSize = true;
-            this.lblAfterOrderReadyTime.Location = new System.Drawing.Point(119, 52);
+            this.lblAfterOrderReadyTime.Location = new System.Drawing.Point(119, 40);
             this.lblAfterOrderReadyTime.Name = "lblAfterOrderReadyTime";
             this.lblAfterOrderReadyTime.Size = new System.Drawing.Size(44, 13);
             this.lblAfterOrderReadyTime.TabIndex = 3;
@@ -271,7 +271,7 @@
             // lblAfterOrderReady
             // 
             this.lblAfterOrderReady.AutoSize = true;
-            this.lblAfterOrderReady.Location = new System.Drawing.Point(119, 18);
+            this.lblAfterOrderReady.Location = new System.Drawing.Point(119, 14);
             this.lblAfterOrderReady.Name = "lblAfterOrderReady";
             this.lblAfterOrderReady.Size = new System.Drawing.Size(69, 13);
             this.lblAfterOrderReady.TabIndex = 2;
@@ -290,7 +290,7 @@
             // lblAfterOrderServedTime
             // 
             this.lblAfterOrderServedTime.AutoSize = true;
-            this.lblAfterOrderServedTime.Location = new System.Drawing.Point(119, 52);
+            this.lblAfterOrderServedTime.Location = new System.Drawing.Point(119, 43);
             this.lblAfterOrderServedTime.Name = "lblAfterOrderServedTime";
             this.lblAfterOrderServedTime.Size = new System.Drawing.Size(44, 13);
             this.lblAfterOrderServedTime.TabIndex = 5;
@@ -299,7 +299,7 @@
             // lblAfterOrderServed
             // 
             this.lblAfterOrderServed.AutoSize = true;
-            this.lblAfterOrderServed.Location = new System.Drawing.Point(119, 18);
+            this.lblAfterOrderServed.Location = new System.Drawing.Point(119, 14);
             this.lblAfterOrderServed.Name = "lblAfterOrderServed";
             this.lblAfterOrderServed.Size = new System.Drawing.Size(56, 13);
             this.lblAfterOrderServed.TabIndex = 4;
