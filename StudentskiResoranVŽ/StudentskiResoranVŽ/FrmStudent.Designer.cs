@@ -88,6 +88,10 @@
             this.btnOrderHistorySub = new System.Windows.Forms.Button();
             this.pnlReviewSub = new System.Windows.Forms.Panel();
             this.lblReview = new System.Windows.Forms.Label();
+            this.lsbReview = new System.Windows.Forms.ListBox();
+            this.txtReviewDelete = new System.Windows.Forms.TextBox();
+            this.btnReviewDelete = new System.Windows.Forms.Button();
+            this.lblReviewDelete = new System.Windows.Forms.Label();
             this.pnlHome.SuspendLayout();
             this.pnlCreateOrder.SuspendLayout();
             this.pnlAfterOrder.SuspendLayout();
@@ -102,6 +106,7 @@
             this.pnlOrderHistory.SuspendLayout();
             this.pnlOrderHistorySub.SuspendLayout();
             this.pnlReview.SuspendLayout();
+            this.pnlReviewSub.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAppName
@@ -682,9 +687,13 @@
             // 
             // pnlReviewSub
             // 
+            this.pnlReviewSub.Controls.Add(this.lblReviewDelete);
+            this.pnlReviewSub.Controls.Add(this.btnReviewDelete);
+            this.pnlReviewSub.Controls.Add(this.txtReviewDelete);
+            this.pnlReviewSub.Controls.Add(this.lsbReview);
             this.pnlReviewSub.Location = new System.Drawing.Point(141, 41);
             this.pnlReviewSub.Name = "pnlReviewSub";
-            this.pnlReviewSub.Size = new System.Drawing.Size(443, 491);
+            this.pnlReviewSub.Size = new System.Drawing.Size(452, 491);
             this.pnlReviewSub.TabIndex = 7;
             // 
             // lblReview
@@ -696,6 +705,40 @@
             this.lblReview.TabIndex = 8;
             this.lblReview.Text = "Recenzije";
             // 
+            // lsbReview
+            // 
+            this.lsbReview.FormattingEnabled = true;
+            this.lsbReview.Location = new System.Drawing.Point(23, 10);
+            this.lsbReview.Name = "lsbReview";
+            this.lsbReview.Size = new System.Drawing.Size(410, 433);
+            this.lsbReview.TabIndex = 0;
+            // 
+            // txtReviewDelete
+            // 
+            this.txtReviewDelete.Location = new System.Drawing.Point(217, 466);
+            this.txtReviewDelete.Name = "txtReviewDelete";
+            this.txtReviewDelete.Size = new System.Drawing.Size(100, 20);
+            this.txtReviewDelete.TabIndex = 1;
+            // 
+            // btnReviewDelete
+            // 
+            this.btnReviewDelete.Location = new System.Drawing.Point(356, 451);
+            this.btnReviewDelete.Name = "btnReviewDelete";
+            this.btnReviewDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnReviewDelete.TabIndex = 2;
+            this.btnReviewDelete.Text = "Obriši";
+            this.btnReviewDelete.UseVisualStyleBackColor = true;
+            this.btnReviewDelete.Click += new System.EventHandler(this.btnReviewDelete_Click);
+            // 
+            // lblReviewDelete
+            // 
+            this.lblReviewDelete.AutoSize = true;
+            this.lblReviewDelete.Location = new System.Drawing.Point(194, 450);
+            this.lblReviewDelete.Name = "lblReviewDelete";
+            this.lblReviewDelete.Size = new System.Drawing.Size(148, 13);
+            this.lblReviewDelete.TabIndex = 3;
+            this.lblReviewDelete.Text = "Unesi ID narudžbe za brisanje";
+            // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -703,8 +746,8 @@
             this.ClientSize = new System.Drawing.Size(717, 565);
             this.Controls.Add(this.pnlReview);
             this.Controls.Add(this.pnlHome);
-            this.Controls.Add(this.pnlCreateOrder);
             this.Controls.Add(this.pnlOrderHistory);
+            this.Controls.Add(this.pnlCreateOrder);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -740,6 +783,8 @@
             this.pnlOrderHistorySub.PerformLayout();
             this.pnlReview.ResumeLayout(false);
             this.pnlReview.PerformLayout();
+            this.pnlReviewSub.ResumeLayout(false);
+            this.pnlReviewSub.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -806,5 +851,9 @@
         private System.Windows.Forms.TextBox txtOrderHistorySub;
         private System.Windows.Forms.Panel pnlReviewSub;
         private System.Windows.Forms.Label lblReview;
+        private System.Windows.Forms.ListBox lsbReview;
+        private System.Windows.Forms.Label lblReviewDelete;
+        private System.Windows.Forms.Button btnReviewDelete;
+        private System.Windows.Forms.TextBox txtReviewDelete;
     }
 }

@@ -39,6 +39,7 @@ namespace StudentskiResoranVŽ
             _originalOrders = _orderHistoryRepository.GetAllOrders();
 
             _reviewsRepository = new ReviewRepository();
+            lsbReview.HorizontalScrollbar = true;
 
             pnlHome.Visible = true;
             pnlCreateOrder.Visible = false;
@@ -290,21 +291,92 @@ namespace StudentskiResoranVŽ
         {
             return _userId;
         }
+        private OrderHistory GetCurrentOrder()
+        {
+            List<OrderHistory> allOrders = _orderHistoryRepository.GetAllOrders();
+
+            if (allOrders.Count == 0)
+            {
+                return null;
+            }
+
+            OrderHistory currentOrder = allOrders.Last();
+
+            return currentOrder;
+        }
 
         private void btnAfterOrderReview_Click(object sender, EventArgs e)
         {
             string reviewText = txtAfterOrderReview.Text;
 
-            var review = new Review
+            if (string.IsNullOrWhiteSpace(reviewText))
             {
-                Id = GenerateUniqueId(),
-                UserId = GetCurrentUserId(),
-                ReviewText = reviewText
-            };
+                MessageBox.Show("Unesite recenziju prije slanja!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-            _reviewsRepository.SaveReview(review);
+            OrderHistory currentOrder = GetCurrentOrder();
 
-            MessageBox.Show("Review saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (currentOrder != null)
+            {
+                int orderId = currentOrder.OrderId;
+                int userId = GetCurrentUserId();
+
+                if (_reviewsRepository.GetReviewByOrderId(orderId) != null)
+                {
+                    MessageBox.Show("Samo jedna recenzija po narudžbi!", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                var review = new Review
+                {
+                    Id = GenerateUniqueId(),
+                    UserId = userId,
+                    OrderItemId = orderId,
+                    ReviewText = reviewText
+                };
+
+                _reviewsRepository.SaveReview(review);
+
+                MessageBox.Show("Recenzija uspješno spremljena!", "Uspjeh", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DisplayReviews();
+                txtAfterOrderReview.Text = "";
+            }
+        }
+
+        private void DisplayReviews()
+        {
+            lsbReview.Items.Clear();
+
+            List<Review> reviews = _reviewsRepository.GetAllReviews();
+
+            foreach (var review in reviews)
+            {
+                string reviewDetails = $"ID: {review.Id}, User ID: {review.UserId}, Order ID: {review.OrderItemId}, Recenzija: {review.ReviewText}";
+                lsbReview.Items.Add(reviewDetails);
+            }
+        }
+
+        private void btnReviewDelete_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtReviewDelete.Text))
+            {
+                int orderIdToDelete;
+                if (int.TryParse(txtReviewDelete.Text, out orderIdToDelete))
+                {
+                    _reviewsRepository.DeleteReviewByOrderId(orderIdToDelete);
+                    DisplayReviews();
+                }
+                else
+                {
+                    MessageBox.Show("Molimo unesite ispravan ID narudžbe.", "Pogreška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Unesite ID narudžbe koju želite izbrisati.", "Upozorenje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

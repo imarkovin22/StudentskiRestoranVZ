@@ -22,5 +22,10 @@ namespace StudentskiResoranVŽ.Repositories
             return _orders;
         }
 
+        public OrderHistory GetCurrentOrder()
+        {
+            return _orders.LastOrDefault();
+        }
+
     }
 }

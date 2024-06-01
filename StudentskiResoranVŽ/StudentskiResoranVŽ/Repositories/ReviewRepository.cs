@@ -9,16 +9,48 @@ namespace StudentskiResoranVŽ.Repositories
 {
     public class ReviewRepository
     {
-        private List<Review> _reviews;
+        private Dictionary<int, Review> _reviewsByOrderId;
 
         public ReviewRepository()
         {
-            _reviews = new List<Review>();
+            _reviewsByOrderId = new Dictionary<int, Review>();
         }
 
         public void SaveReview(Review review)
         {
-            _reviews.Add(review);
+            if (_reviewsByOrderId.ContainsKey(review.OrderItemId))
+            {
+                _reviewsByOrderId[review.OrderItemId] = review;
+            }
+            else
+            {
+                _reviewsByOrderId.Add(review.OrderItemId, review);
+            }
+        }
+
+        public Review GetReviewByOrderId(int orderId)
+        {
+            if (_reviewsByOrderId.ContainsKey(orderId))
+            {
+                return _reviewsByOrderId[orderId];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public void DeleteReviewByOrderId(int orderId)
+        {
+            if (_reviewsByOrderId.ContainsKey(orderId))
+            {
+                _reviewsByOrderId.Remove(orderId);
+            }
+        }
+
+        public List<Review> GetAllReviews()
+        {
+            return _reviewsByOrderId.Values.ToList();
         }
     }
 }
