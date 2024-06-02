@@ -35,6 +35,24 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlHome = new System.Windows.Forms.Panel();
             this.pnlCreateOrder = new System.Windows.Forms.Panel();
+            this.pnlMeni1 = new System.Windows.Forms.Panel();
+            this.lblMeni1Desert = new System.Windows.Forms.Label();
+            this.lblMeni1SideDish = new System.Windows.Forms.Label();
+            this.lblMeni1MainDish = new System.Windows.Forms.Label();
+            this.lblMeni1Soup = new System.Windows.Forms.Label();
+            this.chbMeni1 = new System.Windows.Forms.CheckBox();
+            this.pnlMeni2 = new System.Windows.Forms.Panel();
+            this.lblMeni2Desert = new System.Windows.Forms.Label();
+            this.lblMeni2SideDish = new System.Windows.Forms.Label();
+            this.lblMeni2MainDish = new System.Windows.Forms.Label();
+            this.lblMeni2Soup = new System.Windows.Forms.Label();
+            this.chbMeni2 = new System.Windows.Forms.CheckBox();
+            this.pnlMeni3 = new System.Windows.Forms.Panel();
+            this.lblMeni3Desert = new System.Windows.Forms.Label();
+            this.lblMeni3SideDish = new System.Windows.Forms.Label();
+            this.lblMeni3MainDish = new System.Windows.Forms.Label();
+            this.lblMeni3Soup = new System.Windows.Forms.Label();
+            this.chbMeni3 = new System.Windows.Forms.CheckBox();
             this.pnlAfterOrder = new System.Windows.Forms.Panel();
             this.pnlAfterOrderReview = new System.Windows.Forms.Panel();
             this.lblAfterOrderReviewTip = new System.Windows.Forms.Label();
@@ -55,24 +73,6 @@
             this.lblAfterOrderServedTime = new System.Windows.Forms.Label();
             this.lblAfterOrderServed = new System.Windows.Forms.Label();
             this.lblAfterOrder = new System.Windows.Forms.Label();
-            this.pnlMeni1 = new System.Windows.Forms.Panel();
-            this.lblMeni1Desert = new System.Windows.Forms.Label();
-            this.lblMeni1SideDish = new System.Windows.Forms.Label();
-            this.lblMeni1MainDish = new System.Windows.Forms.Label();
-            this.lblMeni1Soup = new System.Windows.Forms.Label();
-            this.chbMeni1 = new System.Windows.Forms.CheckBox();
-            this.pnlMeni2 = new System.Windows.Forms.Panel();
-            this.lblMeni2Desert = new System.Windows.Forms.Label();
-            this.lblMeni2SideDish = new System.Windows.Forms.Label();
-            this.lblMeni2MainDish = new System.Windows.Forms.Label();
-            this.lblMeni2Soup = new System.Windows.Forms.Label();
-            this.chbMeni2 = new System.Windows.Forms.CheckBox();
-            this.pnlMeni3 = new System.Windows.Forms.Panel();
-            this.lblMeni3Desert = new System.Windows.Forms.Label();
-            this.lblMeni3SideDish = new System.Windows.Forms.Label();
-            this.lblMeni3MainDish = new System.Windows.Forms.Label();
-            this.lblMeni3Soup = new System.Windows.Forms.Label();
-            this.chbMeni3 = new System.Windows.Forms.CheckBox();
             this.bntMakeOrder = new System.Windows.Forms.Button();
             this.lblMeni = new System.Windows.Forms.Label();
             this.btnReturnCreateOrder = new System.Windows.Forms.Button();
@@ -80,29 +80,29 @@
             this.lblOrderHistory = new System.Windows.Forms.Label();
             this.btnReturnOrderHistory = new System.Windows.Forms.Button();
             this.pnlOrderHistorySub = new System.Windows.Forms.Panel();
+            this.btnOrderHistorySub = new System.Windows.Forms.Button();
+            this.txtOrderHistorySub = new System.Windows.Forms.TextBox();
             this.lblOrderHistorySub = new System.Windows.Forms.Label();
             this.lsbOrderHistory = new System.Windows.Forms.ListBox();
             this.pnlReview = new System.Windows.Forms.Panel();
-            this.btnReturnReview = new System.Windows.Forms.Button();
-            this.txtOrderHistorySub = new System.Windows.Forms.TextBox();
-            this.btnOrderHistorySub = new System.Windows.Forms.Button();
-            this.pnlReviewSub = new System.Windows.Forms.Panel();
             this.lblReview = new System.Windows.Forms.Label();
-            this.lsbReview = new System.Windows.Forms.ListBox();
-            this.txtReviewDelete = new System.Windows.Forms.TextBox();
-            this.btnReviewDelete = new System.Windows.Forms.Button();
+            this.pnlReviewSub = new System.Windows.Forms.Panel();
             this.lblReviewDelete = new System.Windows.Forms.Label();
+            this.btnReviewDelete = new System.Windows.Forms.Button();
+            this.txtReviewDelete = new System.Windows.Forms.TextBox();
+            this.lsbReview = new System.Windows.Forms.ListBox();
+            this.btnReturnReview = new System.Windows.Forms.Button();
             this.pnlHome.SuspendLayout();
             this.pnlCreateOrder.SuspendLayout();
+            this.pnlMeni1.SuspendLayout();
+            this.pnlMeni2.SuspendLayout();
+            this.pnlMeni3.SuspendLayout();
             this.pnlAfterOrder.SuspendLayout();
             this.pnlAfterOrderReview.SuspendLayout();
             this.pnlAfterOrderCreated.SuspendLayout();
             this.pnlAfterOrderInProgress.SuspendLayout();
             this.pnlAfterOrderReady.SuspendLayout();
             this.pnlAfterOrderServed.SuspendLayout();
-            this.pnlMeni1.SuspendLayout();
-            this.pnlMeni2.SuspendLayout();
-            this.pnlMeni3.SuspendLayout();
             this.pnlOrderHistory.SuspendLayout();
             this.pnlOrderHistorySub.SuspendLayout();
             this.pnlReview.SuspendLayout();
@@ -173,10 +173,10 @@
             // 
             // pnlCreateOrder
             // 
+            this.pnlCreateOrder.Controls.Add(this.pnlAfterOrder);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni1);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni2);
             this.pnlCreateOrder.Controls.Add(this.pnlMeni3);
-            this.pnlCreateOrder.Controls.Add(this.pnlAfterOrder);
             this.pnlCreateOrder.Controls.Add(this.bntMakeOrder);
             this.pnlCreateOrder.Controls.Add(this.lblMeni);
             this.pnlCreateOrder.Controls.Add(this.btnReturnCreateOrder);
@@ -186,6 +186,186 @@
             this.pnlCreateOrder.Size = new System.Drawing.Size(717, 565);
             this.pnlCreateOrder.TabIndex = 5;
             this.pnlCreateOrder.Visible = false;
+            // 
+            // pnlMeni1
+            // 
+            this.pnlMeni1.BackColor = System.Drawing.Color.Silver;
+            this.pnlMeni1.Controls.Add(this.lblMeni1Desert);
+            this.pnlMeni1.Controls.Add(this.lblMeni1SideDish);
+            this.pnlMeni1.Controls.Add(this.lblMeni1MainDish);
+            this.pnlMeni1.Controls.Add(this.lblMeni1Soup);
+            this.pnlMeni1.Controls.Add(this.chbMeni1);
+            this.pnlMeni1.Location = new System.Drawing.Point(165, 55);
+            this.pnlMeni1.Name = "pnlMeni1";
+            this.pnlMeni1.Size = new System.Drawing.Size(416, 146);
+            this.pnlMeni1.TabIndex = 23;
+            // 
+            // lblMeni1Desert
+            // 
+            this.lblMeni1Desert.AutoSize = true;
+            this.lblMeni1Desert.Location = new System.Drawing.Point(71, 113);
+            this.lblMeni1Desert.Name = "lblMeni1Desert";
+            this.lblMeni1Desert.Size = new System.Drawing.Size(38, 13);
+            this.lblMeni1Desert.TabIndex = 13;
+            this.lblMeni1Desert.Text = "Desert";
+            // 
+            // lblMeni1SideDish
+            // 
+            this.lblMeni1SideDish.AutoSize = true;
+            this.lblMeni1SideDish.Location = new System.Drawing.Point(71, 93);
+            this.lblMeni1SideDish.Name = "lblMeni1SideDish";
+            this.lblMeni1SideDish.Size = new System.Drawing.Size(33, 13);
+            this.lblMeni1SideDish.TabIndex = 12;
+            this.lblMeni1SideDish.Text = "Prilog";
+            // 
+            // lblMeni1MainDish
+            // 
+            this.lblMeni1MainDish.AutoSize = true;
+            this.lblMeni1MainDish.Location = new System.Drawing.Point(71, 71);
+            this.lblMeni1MainDish.Name = "lblMeni1MainDish";
+            this.lblMeni1MainDish.Size = new System.Drawing.Size(60, 13);
+            this.lblMeni1MainDish.TabIndex = 11;
+            this.lblMeni1MainDish.Text = "Glavno jelo";
+            // 
+            // lblMeni1Soup
+            // 
+            this.lblMeni1Soup.AutoSize = true;
+            this.lblMeni1Soup.Location = new System.Drawing.Point(71, 49);
+            this.lblMeni1Soup.Name = "lblMeni1Soup";
+            this.lblMeni1Soup.Size = new System.Drawing.Size(30, 13);
+            this.lblMeni1Soup.TabIndex = 10;
+            this.lblMeni1Soup.Text = "Juha";
+            // 
+            // chbMeni1
+            // 
+            this.chbMeni1.AutoSize = true;
+            this.chbMeni1.Location = new System.Drawing.Point(43, 20);
+            this.chbMeni1.Name = "chbMeni1";
+            this.chbMeni1.Size = new System.Drawing.Size(58, 17);
+            this.chbMeni1.TabIndex = 7;
+            this.chbMeni1.Text = "Meni 1";
+            this.chbMeni1.UseVisualStyleBackColor = true;
+            this.chbMeni1.CheckedChanged += new System.EventHandler(this.chbMeni1_CheckedChanged);
+            // 
+            // pnlMeni2
+            // 
+            this.pnlMeni2.BackColor = System.Drawing.Color.Silver;
+            this.pnlMeni2.Controls.Add(this.lblMeni2Desert);
+            this.pnlMeni2.Controls.Add(this.lblMeni2SideDish);
+            this.pnlMeni2.Controls.Add(this.lblMeni2MainDish);
+            this.pnlMeni2.Controls.Add(this.lblMeni2Soup);
+            this.pnlMeni2.Controls.Add(this.chbMeni2);
+            this.pnlMeni2.Location = new System.Drawing.Point(165, 203);
+            this.pnlMeni2.Name = "pnlMeni2";
+            this.pnlMeni2.Size = new System.Drawing.Size(416, 146);
+            this.pnlMeni2.TabIndex = 24;
+            // 
+            // lblMeni2Desert
+            // 
+            this.lblMeni2Desert.AutoSize = true;
+            this.lblMeni2Desert.Location = new System.Drawing.Point(70, 109);
+            this.lblMeni2Desert.Name = "lblMeni2Desert";
+            this.lblMeni2Desert.Size = new System.Drawing.Size(38, 13);
+            this.lblMeni2Desert.TabIndex = 17;
+            this.lblMeni2Desert.Text = "Desert";
+            // 
+            // lblMeni2SideDish
+            // 
+            this.lblMeni2SideDish.AutoSize = true;
+            this.lblMeni2SideDish.Location = new System.Drawing.Point(70, 88);
+            this.lblMeni2SideDish.Name = "lblMeni2SideDish";
+            this.lblMeni2SideDish.Size = new System.Drawing.Size(33, 13);
+            this.lblMeni2SideDish.TabIndex = 16;
+            this.lblMeni2SideDish.Text = "Prilog";
+            // 
+            // lblMeni2MainDish
+            // 
+            this.lblMeni2MainDish.AutoSize = true;
+            this.lblMeni2MainDish.Location = new System.Drawing.Point(70, 67);
+            this.lblMeni2MainDish.Name = "lblMeni2MainDish";
+            this.lblMeni2MainDish.Size = new System.Drawing.Size(60, 13);
+            this.lblMeni2MainDish.TabIndex = 15;
+            this.lblMeni2MainDish.Text = "Glavno jelo";
+            // 
+            // lblMeni2Soup
+            // 
+            this.lblMeni2Soup.AutoSize = true;
+            this.lblMeni2Soup.Location = new System.Drawing.Point(70, 46);
+            this.lblMeni2Soup.Name = "lblMeni2Soup";
+            this.lblMeni2Soup.Size = new System.Drawing.Size(30, 13);
+            this.lblMeni2Soup.TabIndex = 14;
+            this.lblMeni2Soup.Text = "Juha";
+            // 
+            // chbMeni2
+            // 
+            this.chbMeni2.AutoSize = true;
+            this.chbMeni2.Location = new System.Drawing.Point(43, 11);
+            this.chbMeni2.Name = "chbMeni2";
+            this.chbMeni2.Size = new System.Drawing.Size(58, 17);
+            this.chbMeni2.TabIndex = 8;
+            this.chbMeni2.Text = "Meni 2";
+            this.chbMeni2.UseVisualStyleBackColor = true;
+            this.chbMeni2.CheckedChanged += new System.EventHandler(this.chbMeni2_CheckedChanged);
+            // 
+            // pnlMeni3
+            // 
+            this.pnlMeni3.BackColor = System.Drawing.Color.Silver;
+            this.pnlMeni3.Controls.Add(this.lblMeni3Desert);
+            this.pnlMeni3.Controls.Add(this.lblMeni3SideDish);
+            this.pnlMeni3.Controls.Add(this.lblMeni3MainDish);
+            this.pnlMeni3.Controls.Add(this.lblMeni3Soup);
+            this.pnlMeni3.Controls.Add(this.chbMeni3);
+            this.pnlMeni3.Location = new System.Drawing.Point(165, 351);
+            this.pnlMeni3.Name = "pnlMeni3";
+            this.pnlMeni3.Size = new System.Drawing.Size(416, 146);
+            this.pnlMeni3.TabIndex = 25;
+            // 
+            // lblMeni3Desert
+            // 
+            this.lblMeni3Desert.AutoSize = true;
+            this.lblMeni3Desert.Location = new System.Drawing.Point(69, 116);
+            this.lblMeni3Desert.Name = "lblMeni3Desert";
+            this.lblMeni3Desert.Size = new System.Drawing.Size(38, 13);
+            this.lblMeni3Desert.TabIndex = 21;
+            this.lblMeni3Desert.Text = "Desert";
+            // 
+            // lblMeni3SideDish
+            // 
+            this.lblMeni3SideDish.AutoSize = true;
+            this.lblMeni3SideDish.Location = new System.Drawing.Point(69, 95);
+            this.lblMeni3SideDish.Name = "lblMeni3SideDish";
+            this.lblMeni3SideDish.Size = new System.Drawing.Size(33, 13);
+            this.lblMeni3SideDish.TabIndex = 20;
+            this.lblMeni3SideDish.Text = "Prilog";
+            // 
+            // lblMeni3MainDish
+            // 
+            this.lblMeni3MainDish.AutoSize = true;
+            this.lblMeni3MainDish.Location = new System.Drawing.Point(69, 74);
+            this.lblMeni3MainDish.Name = "lblMeni3MainDish";
+            this.lblMeni3MainDish.Size = new System.Drawing.Size(60, 13);
+            this.lblMeni3MainDish.TabIndex = 19;
+            this.lblMeni3MainDish.Text = "Glavno jelo";
+            // 
+            // lblMeni3Soup
+            // 
+            this.lblMeni3Soup.AutoSize = true;
+            this.lblMeni3Soup.Location = new System.Drawing.Point(69, 53);
+            this.lblMeni3Soup.Name = "lblMeni3Soup";
+            this.lblMeni3Soup.Size = new System.Drawing.Size(30, 13);
+            this.lblMeni3Soup.TabIndex = 18;
+            this.lblMeni3Soup.Text = "Juha";
+            // 
+            // chbMeni3
+            // 
+            this.chbMeni3.AutoSize = true;
+            this.chbMeni3.Location = new System.Drawing.Point(42, 17);
+            this.chbMeni3.Name = "chbMeni3";
+            this.chbMeni3.Size = new System.Drawing.Size(58, 17);
+            this.chbMeni3.TabIndex = 9;
+            this.chbMeni3.Text = "Meni 3";
+            this.chbMeni3.UseVisualStyleBackColor = true;
+            this.chbMeni3.CheckedChanged += new System.EventHandler(this.chbMeni3_CheckedChanged);
             // 
             // pnlAfterOrder
             // 
@@ -379,186 +559,6 @@
             this.lblAfterOrder.TabIndex = 0;
             this.lblAfterOrder.Text = "Stanje narudžbe";
             // 
-            // pnlMeni1
-            // 
-            this.pnlMeni1.BackColor = System.Drawing.Color.Silver;
-            this.pnlMeni1.Controls.Add(this.lblMeni1Desert);
-            this.pnlMeni1.Controls.Add(this.lblMeni1SideDish);
-            this.pnlMeni1.Controls.Add(this.lblMeni1MainDish);
-            this.pnlMeni1.Controls.Add(this.lblMeni1Soup);
-            this.pnlMeni1.Controls.Add(this.chbMeni1);
-            this.pnlMeni1.Location = new System.Drawing.Point(165, 55);
-            this.pnlMeni1.Name = "pnlMeni1";
-            this.pnlMeni1.Size = new System.Drawing.Size(416, 146);
-            this.pnlMeni1.TabIndex = 23;
-            // 
-            // lblMeni1Desert
-            // 
-            this.lblMeni1Desert.AutoSize = true;
-            this.lblMeni1Desert.Location = new System.Drawing.Point(71, 113);
-            this.lblMeni1Desert.Name = "lblMeni1Desert";
-            this.lblMeni1Desert.Size = new System.Drawing.Size(38, 13);
-            this.lblMeni1Desert.TabIndex = 13;
-            this.lblMeni1Desert.Text = "Desert";
-            // 
-            // lblMeni1SideDish
-            // 
-            this.lblMeni1SideDish.AutoSize = true;
-            this.lblMeni1SideDish.Location = new System.Drawing.Point(71, 93);
-            this.lblMeni1SideDish.Name = "lblMeni1SideDish";
-            this.lblMeni1SideDish.Size = new System.Drawing.Size(33, 13);
-            this.lblMeni1SideDish.TabIndex = 12;
-            this.lblMeni1SideDish.Text = "Prilog";
-            // 
-            // lblMeni1MainDish
-            // 
-            this.lblMeni1MainDish.AutoSize = true;
-            this.lblMeni1MainDish.Location = new System.Drawing.Point(71, 71);
-            this.lblMeni1MainDish.Name = "lblMeni1MainDish";
-            this.lblMeni1MainDish.Size = new System.Drawing.Size(60, 13);
-            this.lblMeni1MainDish.TabIndex = 11;
-            this.lblMeni1MainDish.Text = "Glavno jelo";
-            // 
-            // lblMeni1Soup
-            // 
-            this.lblMeni1Soup.AutoSize = true;
-            this.lblMeni1Soup.Location = new System.Drawing.Point(71, 49);
-            this.lblMeni1Soup.Name = "lblMeni1Soup";
-            this.lblMeni1Soup.Size = new System.Drawing.Size(30, 13);
-            this.lblMeni1Soup.TabIndex = 10;
-            this.lblMeni1Soup.Text = "Juha";
-            // 
-            // chbMeni1
-            // 
-            this.chbMeni1.AutoSize = true;
-            this.chbMeni1.Location = new System.Drawing.Point(43, 20);
-            this.chbMeni1.Name = "chbMeni1";
-            this.chbMeni1.Size = new System.Drawing.Size(58, 17);
-            this.chbMeni1.TabIndex = 7;
-            this.chbMeni1.Text = "Meni 1";
-            this.chbMeni1.UseVisualStyleBackColor = true;
-            this.chbMeni1.CheckedChanged += new System.EventHandler(this.chbMeni1_CheckedChanged);
-            // 
-            // pnlMeni2
-            // 
-            this.pnlMeni2.BackColor = System.Drawing.Color.Silver;
-            this.pnlMeni2.Controls.Add(this.lblMeni2Desert);
-            this.pnlMeni2.Controls.Add(this.lblMeni2SideDish);
-            this.pnlMeni2.Controls.Add(this.lblMeni2MainDish);
-            this.pnlMeni2.Controls.Add(this.lblMeni2Soup);
-            this.pnlMeni2.Controls.Add(this.chbMeni2);
-            this.pnlMeni2.Location = new System.Drawing.Point(165, 203);
-            this.pnlMeni2.Name = "pnlMeni2";
-            this.pnlMeni2.Size = new System.Drawing.Size(416, 146);
-            this.pnlMeni2.TabIndex = 24;
-            // 
-            // lblMeni2Desert
-            // 
-            this.lblMeni2Desert.AutoSize = true;
-            this.lblMeni2Desert.Location = new System.Drawing.Point(70, 109);
-            this.lblMeni2Desert.Name = "lblMeni2Desert";
-            this.lblMeni2Desert.Size = new System.Drawing.Size(38, 13);
-            this.lblMeni2Desert.TabIndex = 17;
-            this.lblMeni2Desert.Text = "Desert";
-            // 
-            // lblMeni2SideDish
-            // 
-            this.lblMeni2SideDish.AutoSize = true;
-            this.lblMeni2SideDish.Location = new System.Drawing.Point(70, 88);
-            this.lblMeni2SideDish.Name = "lblMeni2SideDish";
-            this.lblMeni2SideDish.Size = new System.Drawing.Size(33, 13);
-            this.lblMeni2SideDish.TabIndex = 16;
-            this.lblMeni2SideDish.Text = "Prilog";
-            // 
-            // lblMeni2MainDish
-            // 
-            this.lblMeni2MainDish.AutoSize = true;
-            this.lblMeni2MainDish.Location = new System.Drawing.Point(70, 67);
-            this.lblMeni2MainDish.Name = "lblMeni2MainDish";
-            this.lblMeni2MainDish.Size = new System.Drawing.Size(60, 13);
-            this.lblMeni2MainDish.TabIndex = 15;
-            this.lblMeni2MainDish.Text = "Glavno jelo";
-            // 
-            // lblMeni2Soup
-            // 
-            this.lblMeni2Soup.AutoSize = true;
-            this.lblMeni2Soup.Location = new System.Drawing.Point(70, 46);
-            this.lblMeni2Soup.Name = "lblMeni2Soup";
-            this.lblMeni2Soup.Size = new System.Drawing.Size(30, 13);
-            this.lblMeni2Soup.TabIndex = 14;
-            this.lblMeni2Soup.Text = "Juha";
-            // 
-            // chbMeni2
-            // 
-            this.chbMeni2.AutoSize = true;
-            this.chbMeni2.Location = new System.Drawing.Point(43, 11);
-            this.chbMeni2.Name = "chbMeni2";
-            this.chbMeni2.Size = new System.Drawing.Size(58, 17);
-            this.chbMeni2.TabIndex = 8;
-            this.chbMeni2.Text = "Meni 2";
-            this.chbMeni2.UseVisualStyleBackColor = true;
-            this.chbMeni2.CheckedChanged += new System.EventHandler(this.chbMeni2_CheckedChanged);
-            // 
-            // pnlMeni3
-            // 
-            this.pnlMeni3.BackColor = System.Drawing.Color.Silver;
-            this.pnlMeni3.Controls.Add(this.lblMeni3Desert);
-            this.pnlMeni3.Controls.Add(this.lblMeni3SideDish);
-            this.pnlMeni3.Controls.Add(this.lblMeni3MainDish);
-            this.pnlMeni3.Controls.Add(this.lblMeni3Soup);
-            this.pnlMeni3.Controls.Add(this.chbMeni3);
-            this.pnlMeni3.Location = new System.Drawing.Point(165, 351);
-            this.pnlMeni3.Name = "pnlMeni3";
-            this.pnlMeni3.Size = new System.Drawing.Size(416, 146);
-            this.pnlMeni3.TabIndex = 25;
-            // 
-            // lblMeni3Desert
-            // 
-            this.lblMeni3Desert.AutoSize = true;
-            this.lblMeni3Desert.Location = new System.Drawing.Point(69, 116);
-            this.lblMeni3Desert.Name = "lblMeni3Desert";
-            this.lblMeni3Desert.Size = new System.Drawing.Size(38, 13);
-            this.lblMeni3Desert.TabIndex = 21;
-            this.lblMeni3Desert.Text = "Desert";
-            // 
-            // lblMeni3SideDish
-            // 
-            this.lblMeni3SideDish.AutoSize = true;
-            this.lblMeni3SideDish.Location = new System.Drawing.Point(69, 95);
-            this.lblMeni3SideDish.Name = "lblMeni3SideDish";
-            this.lblMeni3SideDish.Size = new System.Drawing.Size(33, 13);
-            this.lblMeni3SideDish.TabIndex = 20;
-            this.lblMeni3SideDish.Text = "Prilog";
-            // 
-            // lblMeni3MainDish
-            // 
-            this.lblMeni3MainDish.AutoSize = true;
-            this.lblMeni3MainDish.Location = new System.Drawing.Point(69, 74);
-            this.lblMeni3MainDish.Name = "lblMeni3MainDish";
-            this.lblMeni3MainDish.Size = new System.Drawing.Size(60, 13);
-            this.lblMeni3MainDish.TabIndex = 19;
-            this.lblMeni3MainDish.Text = "Glavno jelo";
-            // 
-            // lblMeni3Soup
-            // 
-            this.lblMeni3Soup.AutoSize = true;
-            this.lblMeni3Soup.Location = new System.Drawing.Point(69, 53);
-            this.lblMeni3Soup.Name = "lblMeni3Soup";
-            this.lblMeni3Soup.Size = new System.Drawing.Size(30, 13);
-            this.lblMeni3Soup.TabIndex = 18;
-            this.lblMeni3Soup.Text = "Juha";
-            // 
-            // chbMeni3
-            // 
-            this.chbMeni3.AutoSize = true;
-            this.chbMeni3.Location = new System.Drawing.Point(42, 17);
-            this.chbMeni3.Name = "chbMeni3";
-            this.chbMeni3.Size = new System.Drawing.Size(58, 17);
-            this.chbMeni3.TabIndex = 9;
-            this.chbMeni3.Text = "Meni 3";
-            this.chbMeni3.UseVisualStyleBackColor = true;
-            this.chbMeni3.CheckedChanged += new System.EventHandler(this.chbMeni3_CheckedChanged);
-            // 
             // bntMakeOrder
             // 
             this.bntMakeOrder.Location = new System.Drawing.Point(303, 521);
@@ -630,6 +630,23 @@
             this.pnlOrderHistorySub.Size = new System.Drawing.Size(434, 455);
             this.pnlOrderHistorySub.TabIndex = 8;
             // 
+            // btnOrderHistorySub
+            // 
+            this.btnOrderHistorySub.Location = new System.Drawing.Point(323, 25);
+            this.btnOrderHistorySub.Name = "btnOrderHistorySub";
+            this.btnOrderHistorySub.Size = new System.Drawing.Size(75, 23);
+            this.btnOrderHistorySub.TabIndex = 3;
+            this.btnOrderHistorySub.Text = "Pretraži";
+            this.btnOrderHistorySub.UseVisualStyleBackColor = true;
+            this.btnOrderHistorySub.Click += new System.EventHandler(this.btnOrderHistorySub_Click);
+            // 
+            // txtOrderHistorySub
+            // 
+            this.txtOrderHistorySub.Location = new System.Drawing.Point(114, 25);
+            this.txtOrderHistorySub.Name = "txtOrderHistorySub";
+            this.txtOrderHistorySub.Size = new System.Drawing.Size(203, 20);
+            this.txtOrderHistorySub.TabIndex = 2;
+            // 
             // lblOrderHistorySub
             // 
             this.lblOrderHistorySub.AutoSize = true;
@@ -658,32 +675,14 @@
             this.pnlReview.Size = new System.Drawing.Size(717, 565);
             this.pnlReview.TabIndex = 5;
             // 
-            // btnReturnReview
+            // lblReview
             // 
-            this.btnReturnReview.Location = new System.Drawing.Point(630, 530);
-            this.btnReturnReview.Name = "btnReturnReview";
-            this.btnReturnReview.Size = new System.Drawing.Size(75, 23);
-            this.btnReturnReview.TabIndex = 6;
-            this.btnReturnReview.Text = "Povratak";
-            this.btnReturnReview.UseVisualStyleBackColor = true;
-            this.btnReturnReview.Click += new System.EventHandler(this.btnReturnReview_Click_1);
-            // 
-            // txtOrderHistorySub
-            // 
-            this.txtOrderHistorySub.Location = new System.Drawing.Point(114, 25);
-            this.txtOrderHistorySub.Name = "txtOrderHistorySub";
-            this.txtOrderHistorySub.Size = new System.Drawing.Size(203, 20);
-            this.txtOrderHistorySub.TabIndex = 2;
-            // 
-            // btnOrderHistorySub
-            // 
-            this.btnOrderHistorySub.Location = new System.Drawing.Point(323, 25);
-            this.btnOrderHistorySub.Name = "btnOrderHistorySub";
-            this.btnOrderHistorySub.Size = new System.Drawing.Size(75, 23);
-            this.btnOrderHistorySub.TabIndex = 3;
-            this.btnOrderHistorySub.Text = "Pretraži";
-            this.btnOrderHistorySub.UseVisualStyleBackColor = true;
-            this.btnOrderHistorySub.Click += new System.EventHandler(this.btnOrderHistorySub_Click);
+            this.lblReview.AutoSize = true;
+            this.lblReview.Location = new System.Drawing.Point(318, 12);
+            this.lblReview.Name = "lblReview";
+            this.lblReview.Size = new System.Drawing.Size(54, 13);
+            this.lblReview.TabIndex = 8;
+            this.lblReview.Text = "Recenzije";
             // 
             // pnlReviewSub
             // 
@@ -696,29 +695,14 @@
             this.pnlReviewSub.Size = new System.Drawing.Size(452, 491);
             this.pnlReviewSub.TabIndex = 7;
             // 
-            // lblReview
+            // lblReviewDelete
             // 
-            this.lblReview.AutoSize = true;
-            this.lblReview.Location = new System.Drawing.Point(318, 12);
-            this.lblReview.Name = "lblReview";
-            this.lblReview.Size = new System.Drawing.Size(54, 13);
-            this.lblReview.TabIndex = 8;
-            this.lblReview.Text = "Recenzije";
-            // 
-            // lsbReview
-            // 
-            this.lsbReview.FormattingEnabled = true;
-            this.lsbReview.Location = new System.Drawing.Point(23, 10);
-            this.lsbReview.Name = "lsbReview";
-            this.lsbReview.Size = new System.Drawing.Size(410, 433);
-            this.lsbReview.TabIndex = 0;
-            // 
-            // txtReviewDelete
-            // 
-            this.txtReviewDelete.Location = new System.Drawing.Point(217, 466);
-            this.txtReviewDelete.Name = "txtReviewDelete";
-            this.txtReviewDelete.Size = new System.Drawing.Size(100, 20);
-            this.txtReviewDelete.TabIndex = 1;
+            this.lblReviewDelete.AutoSize = true;
+            this.lblReviewDelete.Location = new System.Drawing.Point(194, 450);
+            this.lblReviewDelete.Name = "lblReviewDelete";
+            this.lblReviewDelete.Size = new System.Drawing.Size(148, 13);
+            this.lblReviewDelete.TabIndex = 3;
+            this.lblReviewDelete.Text = "Unesi ID narudžbe za brisanje";
             // 
             // btnReviewDelete
             // 
@@ -730,22 +714,38 @@
             this.btnReviewDelete.UseVisualStyleBackColor = true;
             this.btnReviewDelete.Click += new System.EventHandler(this.btnReviewDelete_Click);
             // 
-            // lblReviewDelete
+            // txtReviewDelete
             // 
-            this.lblReviewDelete.AutoSize = true;
-            this.lblReviewDelete.Location = new System.Drawing.Point(194, 450);
-            this.lblReviewDelete.Name = "lblReviewDelete";
-            this.lblReviewDelete.Size = new System.Drawing.Size(148, 13);
-            this.lblReviewDelete.TabIndex = 3;
-            this.lblReviewDelete.Text = "Unesi ID narudžbe za brisanje";
+            this.txtReviewDelete.Location = new System.Drawing.Point(217, 466);
+            this.txtReviewDelete.Name = "txtReviewDelete";
+            this.txtReviewDelete.Size = new System.Drawing.Size(100, 20);
+            this.txtReviewDelete.TabIndex = 1;
+            // 
+            // lsbReview
+            // 
+            this.lsbReview.FormattingEnabled = true;
+            this.lsbReview.Location = new System.Drawing.Point(23, 10);
+            this.lsbReview.Name = "lsbReview";
+            this.lsbReview.Size = new System.Drawing.Size(410, 433);
+            this.lsbReview.TabIndex = 0;
+            // 
+            // btnReturnReview
+            // 
+            this.btnReturnReview.Location = new System.Drawing.Point(630, 530);
+            this.btnReturnReview.Name = "btnReturnReview";
+            this.btnReturnReview.Size = new System.Drawing.Size(75, 23);
+            this.btnReturnReview.TabIndex = 6;
+            this.btnReturnReview.Text = "Povratak";
+            this.btnReturnReview.UseVisualStyleBackColor = true;
+            this.btnReturnReview.Click += new System.EventHandler(this.btnReturnReview_Click_1);
             // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 565);
-            this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.pnlCreateOrder);
+            this.Controls.Add(this.pnlHome);
             this.Controls.Add(this.pnlOrderHistory);
             this.Controls.Add(this.pnlReview);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -759,6 +759,12 @@
             this.pnlHome.PerformLayout();
             this.pnlCreateOrder.ResumeLayout(false);
             this.pnlCreateOrder.PerformLayout();
+            this.pnlMeni1.ResumeLayout(false);
+            this.pnlMeni1.PerformLayout();
+            this.pnlMeni2.ResumeLayout(false);
+            this.pnlMeni2.PerformLayout();
+            this.pnlMeni3.ResumeLayout(false);
+            this.pnlMeni3.PerformLayout();
             this.pnlAfterOrder.ResumeLayout(false);
             this.pnlAfterOrder.PerformLayout();
             this.pnlAfterOrderReview.ResumeLayout(false);
@@ -771,12 +777,6 @@
             this.pnlAfterOrderReady.PerformLayout();
             this.pnlAfterOrderServed.ResumeLayout(false);
             this.pnlAfterOrderServed.PerformLayout();
-            this.pnlMeni1.ResumeLayout(false);
-            this.pnlMeni1.PerformLayout();
-            this.pnlMeni2.ResumeLayout(false);
-            this.pnlMeni2.PerformLayout();
-            this.pnlMeni3.ResumeLayout(false);
-            this.pnlMeni3.PerformLayout();
             this.pnlOrderHistory.ResumeLayout(false);
             this.pnlOrderHistory.PerformLayout();
             this.pnlOrderHistorySub.ResumeLayout(false);
